@@ -1,28 +1,39 @@
 <?php require("../templates/header.php"); ?>
 
 
-<div class="container">
-	<div class="makeCenter">
-		<h1>Welcome to resturant finder </h1>
+<div class="container makeCenter">
+	<div>
+		<h1>This is our inventory tracker </h1>
 		<p class="lead">
-			Use the form below to find the resturnant you want to find.
+			We can use this to see what foods we have.
 			<br />
-			This will also expand to finding food trucks.
 		</p>
 	</div>
 </div>
 
-<form class="form-inline" method="get">
-	<div class="form-group" id="formDiv">
-		<label for="restName"> Resturant Name </label>
-		<input class="form-control" type="text" placeholder="Enter resturant name you want ot look for">
-		<input class="btn btn-default" type="submit" value="Search">
+<form id="formDiv" action="Inventory.php" method="get">
+	<div class="form-group form-size" >
+		<div>
+			<label for="foodName"> Food Name </label>
+			<input class="form-control" type="text" name="restName" placeholder="Enter food name"><br />
+		</div>
+		<div>
+			<label for="datePurch">Date Purchased</label>
+			<input class="form-control" type="text" name="datePurch" placeholder="When was it purchased"><br />
+		</div>
+		<div>
+			<label for="numOfItems">How many did we buy </label>
+			<input class="form-control" type="text" name="numOfItems" placeholder="Number of items"><br />
+		</div>
+		<div>
+			<label for="Cost">How much did it cost </label>
+			<input class="form-control" type="text" name="Cost" placeholder="Cost?"> <br />
+		</div>
+		<div>
+			<input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">
+		</div>
 	</div>
 </form>
-
-
-
-
 
 
 <?php require("../templates/footer.php");?>

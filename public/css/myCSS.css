@@ -1,11 +1,17 @@
 .makeCenter{
-	margin-top: 40px;
-	padding: 40px 15px;
+	margin: inherit;
+	padding-top: 60px;
+	padding-left: 450px;
+	padding-bottom: 20px;
 }
 
 #formDiv{
-	margin: auto;
+	margin-left: 150px;
 	padding-top: auto;
-	padding-left: 120px;
 	padding-right: 20px;
+}
+
+.form-size{
+	padding-left: 250px;
+	margin-right: 350px;
 }
