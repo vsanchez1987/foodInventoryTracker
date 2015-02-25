@@ -7,23 +7,53 @@ $username = "root";
 $password = "vs";
 $db = "inventorytracker";
 
+$foodName = $_GET["foodName"];
+$datePurch = $_GET["datePurch"];
+$numOfItems = $_GET["numOfItems"];
+$Cost = $_GET["Cost"];
+
+
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = mysqli_connect($servername, $username, $password, $db);
 
 // Check connection
-if($conn -> connect_error){
-	die("Connection failed: " . $conn -> connect_error);
+if(mysqli_connect_error()){
+	die("Connection failed: " . mysqli_connect_error(). 
+			" (" . mysqli_connect_error() . " )");
+}
+
+if($conn === false){
+	die("Connection failed: " . mysqli_connect_error());
+}
+
+
+$sql = "INSERT INTO Inventory (foodname, datepurch, numitems, cost)
+				VALUES ('$foodName','$datePurch', '$numOfItems', '$Cost' )";
+
+mysqli_select_db('inventory');
+
+if (mysqli_query($conn, $sql)) {
+	echo "New record created successfully";
+} else {
+	echo "Error: " . $sql . "<br />" . mysqli_error($conn);
 }
  
 ?>	
 
-<p style="margin-top: 60px;"> <?= $_GET["foodName"]; ?> </p>
-<p style="margin-top: 5px;"> <?= $_GET["datePurch"]; ?> </p>
-<p style="margin-top: 5px;"> <?= $_GET["numOfItems"]; ?> </p>
-<p style="margin-top: 5px;"> <?= "$" . $_GET["Cost"]; ?> </p>
+<?php
+	
+	$sql = "SELECT * FROM inventory";
+	$result = mysqli_query($conn,$sql);
 
+?>
 
+<div style="margin: 40px;">
+<?php while(	$row = mysqli_fetch_assoc($result)) { ?>
+	<p>
+	<?= "id: " . $row["id"] . " - Name " . $row["foodname"];?>
+	</p><br/>
+<?php } ?>
+</div>
 
-
-<?php $conn->close(); ?>
+<?php mysqli_close($conn); ?>
 <?php require("../templates/footer.php");?>
