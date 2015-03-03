@@ -1,5 +1,25 @@
 <?php require("../templates/header.php"); ?>
 
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+
+<?php 
+
+// $foodName = mysqli_real_escape_string($conn, $_GET["foodName"]);
+// $datePurch = mysqli_real_escape_string($conn, $_GET["datePurch"]);
+// $numOfItems = mysqli_real_escape_string($conn, $_GET["numOfItems"]);
+// $Cost = mysqli_real_escape_string($conn, $_GET["Cost"]);
+
+
+?>
+
+<!-- <script type="text/javascript">
+	
+// 	$("#inventory").click(function(){
+// 			window.location = "inventory.php";
+// 	});
+
+// </script> -->
 
 <div class="container">
 	<div class="text-center makeCenter">
@@ -11,7 +31,7 @@
 	</div>
 </div>
 
-<form action="Inventory.php" method="get">
+<form action="addInventory.php" method="get">
   <div class="container">
    <div class="form-div">
 		<div>
@@ -32,7 +52,7 @@
 					<input class="form-control" type="text" name="Cost" placeholder="Cost?"> <br />
 				</div>
 				<div>
-					<input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">
+					<input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit" id="inventory">
 			 </div>
 			</div>
 		</div>
